@@ -1,0 +1,102 @@
+﻿@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@if (TempData["SuccessMessage"] != null)
+{
+
+    <script>
+    alert('@Html.Raw(TempData["SuccessMessage"])');
+    </script>
+}
+
+
+<head>
+    <link rel="stylesheet" href="~/Content/site.css" asp-append-version="true" />
+</head>
+
+<body>
+    <div class="d-flex">
+        <!-- Sidebar con imagen de fondo -->
+        <div class="sidebar" style="background-image: url('/Content/img/FondoIzq.PNG'); background-size: cover; background-repeat: no-repeat; height: 100vh; padding-top: 20px;">
+            <div class="">
+                <!-- Enlace Home -->
+                <a href="@Url.Action("Index", "Administracion")" class="btn btn-light mb-3">Home</a>
+            </div>
+
+        </div>
+
+        <div class="container-fluid">
+            <h2>Funciones:</h2>
+
+            <div class="row">
+                <div class="col-md-4">
+                    <button class="parqueo-btn" onclick="abrirU()">
+                        <img src="~/Content/img/Usuarios.png" alt="Parqueo 1" class="parqueo-img" />
+                        <h4>Usuarios</h4>
+                        <p>Añadir nuevos usuarios</p>
+                    </button>
+                    <script>
+                function abrirU() {
+                    window.location.href = '@Url.Action("Index", "NuevoUsuario")';
+                }
+                    </script>
+                </div>
+                <div class="col-md-4">
+                    <button class="parqueo-btn" onclick="abrirV()">
+                        <img src="~/Content/img/Parqueo.png" alt="Parqueo 3" class="parqueo-img" />
+                        <h4>Vehiculos</h4>
+                        <p>Añadir nuevos Vehiculo</p>
+                    </button>
+                    <script>
+                function abrirV() {
+                    window.location.href = '@Url.Action("index", "NuevoVehiculo")';
+                }
+                    </script>
+                </div>
+
+
+                <div class="col-md-4">
+                    <button class="parqueo-btn" onclick="abrirP()">
+                        <img src="~/Content/img/Parqueo.png" alt="Parqueo 3" class="parqueo-img" />
+                        <h4>Parqueos</h4>
+                        <p>Controlar espacio de parqueos</p>
+                    </button>
+                    <script>
+                function abrirP() {
+                    window.location.href = '@Url.Action("Index", "ParkingLots")';
+                }
+                    </script>
+                </div>
+
+                <div class="col-md-4">
+                    <button class="parqueo-btn" onclick="abrirPa()">
+                        <img src="~/Content/img/Parqueo.png" alt="Parqueo 3" class="parqueo-img" />
+                        <h4>Parqueos</h4>
+                        <p>Entrada y Salida de parqueo</p>
+                    </button>
+                    <script>
+                function abrirPa() {
+                    window.location.href = '@Url.Action("ManageParking", "Parking")';
+                }
+                    </script>
+                </div>
+
+                <div class="col-md-4">
+                    <button class="parqueo-btn" onclick="abrirB()">
+                        <img src="~/Content/img/Bitacora.png" alt="Parqueo 2" class="parqueo-img" />
+                        <h4>Bitácora</h4>
+                        <p>Buscar vehiculos</p>
+                    </button>
+                    <script>
+                function abrirB() {
+                    window.location.href = '@Url.Action("Index", "Bitacora")';
+                }
+                    </script>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
